@@ -1,0 +1,11 @@
+﻿@page "/primes"
+
+<h3>PrimeTest</h3>
+
+ <input type="number" @bind-value="@MaxNumber"></input>
+ <button type="submit" @onclick="CalculatePrimes">Prime numbes</button>
+
+@if (Primes != null) 
+{
+    <p>Found @Primes.Count in @TimeElapsedMs ms</p>
+}

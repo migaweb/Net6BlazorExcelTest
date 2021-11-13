@@ -1,0 +1,34 @@
+﻿@using Microsoft.AspNetCore.Components.Web.Virtualization
+<h3>FileContent</h3>
+<div>
+    Items: @ItemCount, Timer: @ProcessingTimeMs ms
+    <br />
+    <label for="@nameof(UiUpdates)">
+        View progress
+        <input type="checkbox" @bind="UiUpdates" />
+    </label>
+    <br />
+    <button @onclick="HandleAddToIndexedDb">Add to IndexedDB</button>
+    <button @onclick="HandleDeleteFromIndexedDb">Delete from IndexedDB</button>
+    <button @onclick="HandleLoadArticlesFromIndexedDb">Load from IndexedDB</button>
+    <button @onclick="AddTenToPrice">Add 10 to price</button>
+    <button @onclick="HandleClearTable">Clear table</button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Supplier id</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Main group</th>
+            <th>Sub group</th>
+            <th>Ean</th>
+        </tr>
+    </thead>
+    <tbody>
+        <Virtualize Items="@Articles" Context="article">
+            <FileRow article="article" />
+        </Virtualize>
+    </tbody>
+</table>

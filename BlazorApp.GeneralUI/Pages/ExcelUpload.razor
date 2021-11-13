@@ -1,0 +1,33 @@
+﻿@page "/"
+@using BlazorApp.GeneralUI.Components
+@using Microsoft.AspNetCore.Components.Forms
+
+<h3>Excel Upload Test</h3>
+<div class='row'>
+    <div class='column'>
+        <InputFile OnChange="OnInputFileChange"></InputFile>
+        <br />
+        <label for="@nameof(SendToServer)">
+            <input id="@nameof(SendToServer)" type="checkbox" @bind="SendToServer" />
+            Send to server
+        </label>
+        
+        <br />
+        <button disabled="@(File == null)" class="btn btn-primary" @onclick="ReadFileAsync">
+            Parse @(SendToServer ? "on server" : "on client" )
+        </button>
+        <br />
+        <button disabled="@(File == null)" class="btn btn-primary" @onclick="OrderbyDescription">
+            Order by Description
+        </button>
+        <br />
+        <p>@ErrorMessage</p>
+    </div>
+    <div class='column'>
+        <FileInfo File="File"
+                  ProcessingTimeMs="TimeElapsedMs"
+                  ArticlesCount="Articles.Count" />
+    </div>
+</div>
+<hr />
+<FileContent Articles="Articles"></FileContent>

@@ -1,0 +1,13 @@
+﻿<h3>FileInfo</h3>
+
+@if (File != null)
+{
+    <p><b>Name:</b> @File.Name</p>
+    <p><b>Size:</b> @File.Size bytes</p>
+    <p><b>Rows:</b> @ArticlesCount</p>
+    <p><b>Last Modified:</b> @File.LastModified.DateTime.ToShortDateString()</p>
+    <p><b>Content type:</b> @File.ContentType</p>
+    <p>
+        <b>Processing time:</b> @ProcessingTimeMs ms
+    </p>
+}

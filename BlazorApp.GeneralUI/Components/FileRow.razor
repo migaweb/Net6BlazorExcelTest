@@ -1,0 +1,14 @@
+﻿<tr>
+    <td><b>@article.Id</b></td>
+    <td>@article.SupplierId</td>
+    <td>@article.Description</td>
+    <td>@article.Price</td>
+    <td>@article.MainGroupId</td>
+    <td>@article.SubGroupId</td>
+    <td>@article.Ean</td>
+</tr>
+
+@code {
+  [Parameter]
+  public WASM.Shared.Entities.Article article { get; set; }
+}
